@@ -516,3 +516,57 @@
 - Olist에는 실제 treatment / control 배정 정보가 없어 실험 결과 분석은 수행하지 않고, 실제 운영에서는 MDE와 sample size를 사전 정의한 무작위 실험으로 효과를 검증하도록 한계 명시
 
 **다음 작업:** Tableau 대시보드 구성 및 핵심 분석 결과 시각화
+
+
+
+## 2026-09-04~10 — Tableau 대시보드 구성 및 시각화 완료
+
+### 주요 시각화 결과
+
+- 전체 고객 수: 93,358명
+- 90일 관찰 가능 고객: 75,387명
+- 90일 재구매율: 2.28%
+- 4일 이상 배송 지연 고객: 4,534명
+
+- 첫 구매 금액대별 90일 재구매율
+  - Q1: 2.46%
+  - Q2: 2.41%
+  - Q3: 2.16%
+  - Q4: 2.07%
+- Q3·Q4 고객군은 전체 재구매율 2.28%보다 낮은 재구매율을 보였다.
+
+- Q3·Q4 고객의 주요 카테고리별 재구매율은 0.55%~4.20%로 나타났다.
+- 표본 안정성을 위해 90일 관찰 가능 고객이 1,000명 이상인 카테고리를 기준으로 Top 5 / Bottom 5를 비교했다.
+
+- 배송 지연 구간별 저리뷰율
+  - 1~3일: 32.08%
+  - 4~7일: 68.08%
+  - 8~13일: 79.79%
+  - 14일 이상: 79.00%
+- 지연 구간이 길어질수록 저리뷰율이 높은 수준으로 나타나는 패턴을 확인했다.
+
+### 대시보드 구성
+
+- KPI
+  - Customers
+  - 90D Eligible Customers
+  - Repurchase Rate
+  - Customer with 4+ Day Delay
+- Retention Analysis
+  - 첫 구매 금액대별 재구매율
+  - Q3·Q4 고객의 카테고리별 재구매율 Top 5 / Bottom 5
+- Delivery CX Analysis
+  - 배송 지연 구간별 저리뷰율
+- Key Insights
+  - Q3·Q4 고객군의 낮은 재구매율
+  - 카테고리별 재구매율 격차
+  - 배송 지연 장기화와 CX 악화
+
+### 산출물
+
+- Tableau 분석 데이터
+  - `dashboard/data/tableau_customer_source.csv`
+- Tableau dashboard image
+  - `dashboard/olist_customer_retention_delivery_cx_dashboard.png`
+- Tableau Public dashboard
+  - 최종 대시보드 게시 완료
