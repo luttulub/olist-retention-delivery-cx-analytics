@@ -400,7 +400,7 @@ union all
 
 select
 	'cx' as objective,
-	'4d plus delivery delay' as target,
+	'4d plus past estimated delivery' as target,
 	count(*) as target_customer_cnt,
 	'4d plus delay showed 6.1x low-review odds' as evidence,
 	'proactive delay communication and service recovery experiment' as proposed_action,
@@ -415,5 +415,5 @@ where delivery_group = 'delayed' and delivery_delay_days >= 4;
 - retention은 q3, q4 첫 구매 고객을 우선 target pool로 선정하고, category를 후속 구매 crm의 개인화 및 우선순위 context로 활용한다.
 - cx는 4일 이상 배송 지연 고객을 intervention target으로 선정하고, 선제 안내와 service recovery를 통해 저리뷰 감소를 검증한다.
 - retention과 cx 모두 cohort별 성과 차이가 확인돼 이후 a/b test와 성과 평가에서 시기 효과를 함께 고려한다.
-- 현재 분석은 액션 대상과 baseline을 정의한 단계이며, 제안 액션의 실제 효과는 treatment/control 기반 a/b test로 검증한다.
+- 현재 분석은 관찰데이터 기반으로 액션 대상과 baseline을 정의한 단계이며, 제안 액션의 인과적 효과는 treatment/control 기반 a/b test에서 검증한다.
 */
