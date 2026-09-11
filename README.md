@@ -8,7 +8,9 @@ SQL로 주문·고객 단위 데이터마트를 구축해 리텐션과 배송 CX
 
 **SQL · PostgreSQL · Python · Tableau**
 
+
 ---
+
 
 ## Project Overview
 
@@ -28,7 +30,9 @@ SQL로 주문·고객 단위 데이터마트를 구축해 리텐션과 배송 CX
 
 90일 재구매율은 첫 구매 이후 **최소 90일의 관찰 기간이 확보된 고객**만을 분모에 포함해 계산했습니다.
 
+
 ---
+
 
 ## Dashboard
 
@@ -36,7 +40,9 @@ SQL로 주문·고객 단위 데이터마트를 구축해 리텐션과 배송 CX
 
 [View Interactive Dashboard on Tableau Public](https://public.tableau.com/views/Olisttableau_17890359173800/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
+
 ---
+
 
 ## Key Insights
 
@@ -76,7 +82,9 @@ Q3·Q4 고객 중 90일 관찰 가능 고객이 1,000명 이상인 카테고리�
 
 > 배송 지연 4일은 통계적 변화점이 아니라 분석 구간 구분과 운영 활용을 위해 설정한 기준입니다.
 
+
 ---
+
 
 ## Analysis Process
 
@@ -127,7 +135,9 @@ SQL에서 탐색한 재구매 및 CX 관련 후보 요인이
 
 최종 분석 결과와 주요 지표를 한 화면에서 확인할 수 있도록 Tableau 대시보드를 구성했습니다.
 
+
 ---
+
 
 ## Experiment Design
 
@@ -147,7 +157,9 @@ Olist 데이터에는 실제 treatment/control 정보가 존재하지 않기 때
 
 따라서 본 프로젝트에서는 **타깃 정의와 A/B 테스트 설계까지만 수행했습니다.**
 
+
 ---
+
 
 ## Tech Stack
 
@@ -160,7 +172,9 @@ Olist 데이터에는 실제 treatment/control 정보가 존재하지 않기 때
 | Visualization | Tableau Public |
 | Version Control & Documentation | GitHub |
 
+
 ---
+
 
 ## Limitations
 
@@ -172,7 +186,9 @@ Olist 데이터에는 실제 treatment/control 정보가 존재하지 않기 때
 - 상품 카테고리의 원본 결측 및 영문 번역 누락 값은 `unknown_category`로 처리했습니다.
 - 실제 A/B 테스트 데이터가 없어 실험 효과를 측정하지 않았으며, 후속 실험 설계까지만 수행했습니다.
 
+
 ---
+
 
 ## Documentation
 
