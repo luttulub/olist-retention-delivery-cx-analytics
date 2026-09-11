@@ -6,20 +6,22 @@ Olist 이커머스 데이터셋의 구조를 이해하고 이후 분석에 활�
 
 원본 데이터는 CSV 형태로 제공되어 데이터베이스에 실제 Primary Key(PK)와 Foreign Key(FK) 제약조건이 설정되어 있지 않았다. 따라서 각 컬럼의 고유성과 테이블 간 연결 구조를 기준으로 논리적인 데이터 모델을 구성하였다.
 
+분석 환경에서는 테이블명을 간결하게 사용하기 위해 원본의 `order_items`, `order_payments`를 각각 `items`, `payments`로 변경하였다.
+
 ---
 
 ## 2. 테이블 간 관계
 
-분석에 활용할 주요 테이블 관계는 다음과 같다.
+분석에 활용한 주요 테이블 관계는 다음과 같다.
 
 | 부모 테이블 | 자식 테이블 | 연결 컬럼 |
 |---|---|---|
 | customers | orders | customer_id |
-| orders | order_items | order_id |
-| orders | order_payments | order_id |
+| orders | items | order_id |
+| orders | payments | order_id |
 | orders | reviews | order_id |
-| products | order_items | product_id |
-| sellers | order_items | seller_id |
+| products | items | product_id |
+| sellers | items | seller_id |
 | category | products | product_category_name |
 
 ---
@@ -35,8 +37,8 @@ Olist 이커머스 데이터셋의 구조를 이해하고 이후 분석에 활�
 | products | product_id |
 | sellers | seller_id |
 | category | product_category_name |
-| order_items | (`order_id`, `order_item_id`) |
-| order_payments | (`order_id`, `payment_sequential`) |
+| items | (`order_id`, `order_item_id`) |
+| payments | (`order_id`, `payment_sequential`) |
 
 `reviews`와 `geolocation` 테이블은 원본 데이터만으로 신뢰할 수 있는 단일 기본키를 확인하기 어려워 별도의 기본키를 지정하지 않았다.
 
