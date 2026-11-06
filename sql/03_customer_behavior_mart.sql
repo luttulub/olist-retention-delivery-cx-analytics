@@ -174,8 +174,7 @@ customer_value as (
 select
 	count(*) as customer_cnt,
 	count(distinct customer_unique_id) as distinct_customer_cnt,
-	count(*) filter (whe
-	re total_payment is null) as null_total_payment_cnt,
+	count(*) filter (where total_payment is null) as null_total_payment_cnt,
 	count(*) filter (where first_order_payment_total is null) as null_first_payment_cnt
 from customer_value;
 /*
@@ -736,10 +735,7 @@ customer_repurchase as (
 customer_cohort as (
 	select
 		customer_unique_id,
-		date_trunc(
-			'month',
-			nullif(trim(first_order_timestamp), '')::timestamp
-			)::date as cohort_month
+		date_trunc('month',nullif(trim(first_order_timestamp), '')::timestamp)::date as cohort_month
 	from customer_purchase_history
 	)
 
