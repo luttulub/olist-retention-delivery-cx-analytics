@@ -1,6 +1,6 @@
 # Olist Customer Retention & Delivery CX Analytics
 
-Olist 공개 이커머스 주문 데이터를 기반으로 고객의 **재구매 패턴과 배송 경험**을 분석한 데이터 분석 프로젝트입니다.
+Olist 공개 이커머스 주문 데이터를 기반으로 고객의 **재구매 패턴과 배송 경험, 판매 성과**를 분석한 데이터 분석 프로젝트입니다.
 
 SQL로 주문·고객 단위 데이터마트를 구축해 리텐션과 배송 CX 관련 패턴을 분석하고, 주요 후보 요인은 Python 로지스틱 회귀로 추가 검증했습니다.
 
@@ -14,7 +14,7 @@ SQL로 주문·고객 단위 데이터마트를 구축해 리텐션과 배송 CX
 
 ## Project Overview
 
-고객의 첫 구매 이후 재구매 패턴과 주문·배송 경험을 중심으로 분석했습니다.
+고객의 첫 구매 이후 재구매 패턴과 주문·배송 경험을 분석하고, 월별 판매 성과 및 상품 카테고리별 GMV 기여도를 추가로 분석했습니다.
 
 분석은 **데이터 검증 → 데이터마트 구축 → 리텐션·CX 분석 → 통계적 추가 검증 → 비즈니스 타깃 정의 → A/B 테스트 설계 → 시각화** 순으로 진행했습니다.
 
@@ -36,9 +36,14 @@ SQL로 주문·고객 단위 데이터마트를 구축해 리텐션과 배송 CX
 
 ## Dashboard
 
+### Retention & Delivery CX Dashboard
 ![Olist Customer Retention & Delivery CX Dashboard](dashboard/olist_customer_retention_delivery_cx_dashboard.png)
 
 [View Interactive Dashboard on Tableau Public](https://public.tableau.com/views/Olisttableau_17890359173800/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+### Sales Performance Dashboard
+![Olist Sales Performance Dashboard](dashboard/olist_sales_performance_dashboard.png)
+[View Interactive Sales Dashboard on Tableau Public](https://public.tableau.com/views/OlistPerformance_17944726743520/1?:language=ko-KR&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
 ---
@@ -81,6 +86,16 @@ Q3·Q4 고객의 재구매 odds가 낮은 방향으로 유지되어 후속 리�
 1~3일 지연 고객 대비 저리뷰 odds가 약 **6.1배** 높게 나타났습니다.
 
 > 배송 지연 4일은 통계적 변화점이 아니라 분석 구간 구분과 운영 활용을 위해 설정한 기준입니다.
+
+---
+
+### 4. 판매 성과 및 카테고리별 GMV 집중도
+
+**총 상품 GMV 13.18M BRL · 배송 완료 주문 96,211건 · 상위 10개 카테고리 GMV 비중 62.47%**
+
+2017년 1월부터 2018년 8월까지의 배송 완료 주문을 기준으로 월별 상품 거래액(GMV)과 주문량 추이를 분석했습니다.
+
+상위 10개 카테고리가 전체 상품 GMV의 **62.47%**를 차지했으며, Health & Beauty가 **9.33%**로 가장 높은 기여도를 보였습니다.
 
 
 ---
@@ -135,6 +150,12 @@ SQL에서 탐색한 재구매 및 CX 관련 후보 요인이
 
 최종 분석 결과와 주요 지표를 한 화면에서 확인할 수 있도록 Tableau 대시보드를 구성했습니다.
 
+### 7. Sales Performance Analysis
+
+배송 완료 주문을 기준으로 월별 상품 GMV, 주문 수, AOV, 전월 대비 GMV 성장률을 산출하고, 상품 카테고리별 GMV 기여도를 분석했습니다.
+
+→ [08_sales_performance_analysis.sql](sql/08_sales_performance_analysis.sql)
+
 
 ---
 
@@ -185,7 +206,8 @@ Olist 데이터에는 실제 treatment/control 정보가 존재하지 않기 때
 - 배송 지연의 4일 기준은 통계적 변화점이 아니라 분석 구간 구분과 운영 활용을 위한 기준입니다.
 - 상품 카테고리의 원본 결측 및 영문 번역 누락 값은 `unknown_category`로 처리했습니다.
 - 실제 A/B 테스트 데이터가 없어 실험 효과를 측정하지 않았으며, 후속 실험 설계까지만 수행했습니다.
-
+- 
+- 2018년 8월 말 주문 수와 배송 완료율이 급격히 감소하여, 해당 기간의 GMV 및 성장률은 데이터 관측 종료에 따른 영향을 받았을 가능성이 있습니다.
 
 ---
 
