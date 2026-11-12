@@ -43,6 +43,7 @@ SQL로 주문·고객 단위 데이터마트를 구축해 리텐션과 배송 CX
 
 ### Sales Performance Dashboard
 ![Olist Sales Performance Dashboard](dashboard/olist_sales_performance_dashboard.png)
+
 [View Interactive Sales Dashboard on Tableau Public](https://public.tableau.com/views/OlistPerformance_17944726743520/1?:language=ko-KR&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
